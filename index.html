@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lesuik AI Video</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08090d;
+    color: #fff;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    height: 70px;
+    background: #101117;
+    border-bottom: 1px solid #242630;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #ff315d;
+}
+
+.nav {
+    display: flex;
+    gap: 28px;
+}
+
+.nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #fff;
+}
+
+.search {
+    background: #181a22;
+    border: 1px solid #30323d;
+    color: #fff;
+
+    width: 180px;
+    padding: 10px 14px;
+
+    border-radius: 20px;
+    outline: none;
+}
+
+.search::placeholder {
+    color: #777;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 8%;
+
+    background:
+        radial-gradient(circle at 15% 30%, rgba(255,49,93,.20), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(93,70,255,.18), transparent 35%),
+        linear-gradient(135deg, #10111c, #090a0f);
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border: 1px solid #ff315d;
+    border-radius: 20px;
+
+    color: #ff315d;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.02;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #ff315d;
+}
+
+.hero p {
+    max-width: 620px;
+
+    color: #a8a9b3;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 13px 22px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #ff315d;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #ff174b;
+}
+
+.btn-secondary {
+    background: #191b23;
+    border: 1px solid #30323d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #242631;
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+.categories {
+    padding: 30px 8%;
+
+    border-bottom: 1px solid #1d1f27;
+
+    display: flex;
+    gap: 10px;
+
+    overflow-x: auto;
+}
+
+.category {
+    white-space: nowrap;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    background: #15171e;
+    border: 1px solid #292b35;
+
+    color: #aaa;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.category:hover,
+.category.active {
+    background: #ff315d;
+    border-color: #ff315d;
+    color: white;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    padding: 60px 8%;
+}
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.section-title {
+    font-size: 27px;
+}
+
+.section-title span {
+    color: #ff315d;
+}
+
+.see-all {
+    color: #ff315d;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+/* =========================
+   TEMPLATE GRID
+========================= */
+
+.template-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.template {
+    background: #12141b;
+
+    border: 1px solid #242630;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: .25s;
+}
+
+.template:hover {
+    transform: translateY(-5px);
+
+    border-color: #ff315d;
+}
+
+.template-image {
+    height: 230px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #252838,
+            #101118
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+
+    position: relative;
+}
+
+.template-duration {
+    position: absolute;
+
+    bottom: 10px;
+    right: 10px;
+
+    background: rgba(0,0,0,.75);
+
+    padding: 5px 8px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+}
+
+.template-body {
+    padding: 17px;
+}
+
+.template-title {
+    font-size: 16px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.template-info {
+    color: #777;
+
+    font-size: 12px;
+
+    margin-bottom: 15px;
+}
+
+.template-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.template-btn {
+    flex: 1;
+
+    padding: 9px;
+
+    border-radius: 6px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.preview {
+    background: #20222b;
+    color: #fff;
+}
+
+.use-template {
+    background: #ff315d;
+    color: #fff;
+}
+
+
+/* =========================
+   FEATURE
+========================= */
+
+.features {
+    padding: 60px 8%;
+
+    background: #0d0f15;
+
+    border-top: 1px solid #1d1f27;
+    border-bottom: 1px solid #1d1f27;
+}
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.feature {
+    padding: 30px;
+
+    background: #13151c;
+
+    border: 1px solid #242630;
+
+    border-radius: 12px;
+}
+
+.feature-icon {
+    font-size: 35px;
+
+    margin-bottom: 18px;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #888;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    margin: 30px 8% 70px;
+
+    padding: 55px 30px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,49,93,.18),
+            transparent 60%
+        ),
+        #12141b;
+
+    border: 1px solid #292b35;
+}
+
+.cta h2 {
+    font-size: 32px;
+
+    margin-bottom: 12px;
+}
+
+.cta p {
+    color: #888;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 30px 8%;
+
+    border-top: 1px solid #1d1f27;
+
+    color: #666;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px) {
+
+    .template-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .feature-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .nav {
+        display: none;
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .header {
+        padding: 0 20px;
+    }
+
+    .search {
+        width: 120px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .section {
+        padding: 45px 20px;
+    }
+
+    .template-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .categories {
+        padding: 20px;
+    }
+
+    .cta {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header class="header">
+
+    <div class="logo">
+        LESUIK<span>AI VIDEO</span>
+    </div>
+
+    <nav class="nav">
+        <a href="#">HOME</a>
+        <a href="#template">TEMPLATE</a>
+        <a href="#script">SCRIPT</a>
+        <a href="#ai">AI VIDEO</a>
+    </nav>
+
+    <input
+        class="search"
+        type="text"
+        placeholder="🔍 Cari template..."
+    >
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            AI VIDEO CREATOR
+        </div>
+
+        <h1>
+            CREATE
+            <span>AMAZING</span>
+            VIDEOS.
+        </h1>
+
+        <p>
+            Temukan template video, video mentahan,
+            script, dan aset kreatif untuk membuat
+            konten TikTok, Reels, dan YouTube Shorts
+            dengan lebih cepat.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#template"
+                class="btn btn-primary"
+            >
+                Jelajahi Template
+            </a>
+
+            <a
+                href="#script"
+                class="btn btn-secondary"
+            >
+                Lihat Script
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CATEGORY
+========================= -->
+
+<div class="categories">
+
+    <div class="category active">
+        🔥 Trending
+    </div>
+
+    <div class="category">
+        🤖 AI Video
+    </div>
+
+    <div class="category">
+        🎮 Gaming
+    </div>
+
+    <div class="category">
+        🛍️ Produk
+    </div>
+
+    <div class="category">
+        😂 Meme
+    </div>
+
+    <div class="category">
+        ❤️ Quotes
+    </div>
+
+    <div class="category">
+        🎬 Cinematic
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     TEMPLATE
+========================= -->
+
+<section
+    class="section"
+    id="template"
+>
+
+    <div class="section-header">
+
+        <h2 class="section-title">
+            🔥 Template <span>Terbaru</span>
+        </h2>
+
+        <a
+            href="#"
+            class="see-all"
+        >
+            Lihat Semua →
+        </a>
+
+    </div>
+
+
+    <div class="template-grid">
+
+
+        <!-- TEMPLATE 1 -->
+
+        <div class="template">
+
+            <div class="template-image">
+                🎬
+
+                <div class="template-duration">
+                    00:15
+                </div>
+
+            </div>
+
+            <div class="template-body">
+
+                <div class="template-title">
+                    Cinematic Product
+                </div>
+
+                <div class="template-info">
+                    🛍️ Produk • 15 detik
+                </div>
+
+                <div class="template-buttons">
+
+                    <a
+                        href="#"
+                        class="template-btn preview"
+                    >
+                        Preview
+                    </a>
+
+                    <a
+                        href="#"
+                        class="template-btn use-template"
+                    >
+                        Gunakan
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TEMPLATE 2 -->
+
+        <div class="template">
+
+            <div class="template-image">
+                🎮
+
+                <div class="template-duration">
+                    00:12
+                </div>
+
+            </div>
+
+            <div class="template-body">
+
+                <div class="template-title">
+                    Gaming Highlight
+                </div>
+
+                <div class="template-info">
+                    🎮 Gaming • 12 detik
+                </div>
+
+                <div class="template-buttons">
+
+                    <a
+                        href="#"
+                        class="template-btn preview"
+                    >
+                        Preview
+                    </a>
+
+                    <a
+                        href="#"
+                        class="template-btn use-template"
+                    >
+                        Gunakan
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TEMPLATE 3 -->
+
+        <div class="template">
+
+            <div class="template-image">
+                🤖
+
+                <div class="template-duration">
+                    00:10
+                </div>
+
+            </div>
+
+            <div class="template-body">
+
+                <div class="template-title">
+                    AI Story
+                </div>
+
+                <div class="template-info">
+                    🤖 AI • 10 detik
+                </div>
+
+                <div class="template-buttons">
+
+                    <a
+                        href="#"
+                        class="template-btn preview"
+                    >
+                        Preview
+                    </a>
+
+                    <a
+                        href="#"
+                        class="template-btn use-template"
+                    >
+                        Gunakan
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TEMPLATE 4 -->
+
+        <div class="template">
+
+            <div class="template-image">
+                🍔
+
+                <div class="template-duration">
+                    00:15
+                </div>
+
+            </div>
+
+            <div class="template-body">
+
+                <div class="template-title">
+                    Food Promotion
+                </div>
+
+                <div class="template-info">
+                    🍔 Produk • 15 detik
+                </div>
+
+                <div class="template-buttons">
+
+                    <a
+                        href="#"
+                        class="template-btn preview"
+                    >
+                        Preview
+                    </a>
+
+                    <a
+                        href="#"
+                        class="template-btn use-template"
+                    >
+                        Gunakan
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SCRIPT
+========================= -->
+
+<section
+    class="section"
+    id="script"
+>
+
+    <div class="section-header">
+
+        <h2 class="section-title">
+            📝 Script <span>Siap Pakai</span>
+        </h2>
+
+        <a
+            href="#"
+            class="see-all"
+        >
+            Lihat Semua →
+        </a>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🛍️
+            </div>
+
+            <h3>
+                Script Promosi Produk
+            </h3>
+
+            <p>
+                Script pendek untuk video promosi
+                produk yang cocok untuk TikTok,
+                Reels dan Shorts.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🎮
+            </div>
+
+            <h3>
+                Script Gaming
+            </h3>
+
+            <p>
+                Ide dan script untuk membuat
+                konten gaming yang singkat dan
+                menarik.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🤖
+            </div>
+
+            <h3>
+                Script AI Story
+            </h3>
+
+            <p>
+                Script cerita pendek yang dapat
+                digunakan sebagai dasar pembuatan
+                video AI.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section
+    class="features"
+    id="ai"
+>
+
+    <div class="section-header">
+
+        <h2 class="section-title">
+            🚀 Buat Video <span>Lebih Cepat</span>
+        </h2>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🎬
+            </div>
+
+            <h3>
+                Video Mentahan
+            </h3>
+
+            <p>
+                Kumpulan video mentahan yang
+                bisa digunakan untuk membuat
+                konten Anda sendiri.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🧩
+            </div>
+
+            <h3>
+                Template Siap Edit
+            </h3>
+
+            <p>
+                Gunakan struktur video yang sudah
+                dibuat sehingga Anda tidak perlu
+                memulai dari nol.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Cepat & Praktis
+            </h3>
+
+            <p>
+                Semua bahan konten dikumpulkan
+                dalam satu tempat agar proses
+                editing menjadi lebih cepat.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <h2>
+        Siap Membuat Video?
+    </h2>
+
+    <p>
+        Pilih template dan mulai membuat
+        konten Anda sendiri.
+    </p>
+
+    <a
+        href="#template"
+        class="btn btn-primary"
+    >
+        Mulai Sekarang
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    © 2026 Lesuik AI Video
+    • Template • Script • AI Video
+
+</footer>
+
+
+</body>
+</html>
